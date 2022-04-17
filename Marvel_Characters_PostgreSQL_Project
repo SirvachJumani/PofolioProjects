@@ -46,6 +46,8 @@ INSERT INTO marvels VALUES(24, "Venon", 78, "Neutral", "Male", 1.90, 118, "EUA",
 INSERT INTO marvels VALUES(25, "Juggernaut", 76, "Neutral", "Male", 2.87, 862, "EUA", 2, 7, 2, 7, 1, 4);
 INSERT INTO marvels VALUES(26, "Professor X", 58, "Good", "Male", 1.83, 86, "EUA", 5, 2, 2, 2, 5, 3);
 
+
+-- Select all from marvels and order by popularity
 select * from marvels order by popularity;
 
 -- Top 10 popular Marvel Characters by hometown
@@ -69,15 +71,10 @@ select Name, height_m from marvels
 where height_m > 
         (select avg(height_m) from marvels 
         where gender = 'Male');
-        
-select Name, height_m from marvels
-where height_m > 
-        (select avg(height_m) from marvels 
-        where gender = 'Male');
 
 --find the characters have the highest weight in the genders.
 
--- find the highest weight in each gender
+-- find the max weight in each gender
 select name, gender, max(weight_kg) as Highest_Weight from marvels group by gender;
 
 -- Count the type of each charachter alignment in marvels.
